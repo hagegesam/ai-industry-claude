@@ -86,54 +86,59 @@ DATABASE_URL=sqlite:///ai_use_cases.db  # Default SQLite database
 - **Tavily API Key** (Recommended): https://tavily.com/ (Free tier available)
 - **SerpAPI Key**: https://serpapi.com/ (Free trial available)
 
-## Step 5: Running the Benchmark
+## Step 5: Running the Tool
 
+### Command Line Interface
 ```bash
 # Basic usage
 python main.py --industry finance
 
-# Specify number of use cases to search for
+# Specify number of use cases
 python main.py --industry healthcare --count 10
 
-# Specify output format (json, csv, or all)
+# Specify output format
 python main.py --industry automotive --format json
 ```
 
+### Web Interface
+```bash
+# Start the Flask application
+python app.py
+
+# Open in browser: http://localhost:5000
+```
+
+## Output Fields
+
+Each AI use case includes:
+- `industry`: Industry sector
+- `business_function`: Business function impacted
+- `origine_de_la_source`: Source type
+- `lien`: Source URL
+- `derniere_mise_a_jour`: Last update date
+- `processus_impacte`: Impacted business processes
+- `gains_attendus_realises`: Expected or realized gains
+- `usage_ia`: AI usage description
+- `technologies_ia_utilisees`: AI technologies used
+- `partenaires_impliques`: Implementation partners
+
 ## Database Support
 
-The tool now supports storing AI use cases in a database. By default, it uses SQLite, but you can configure it to use other databases like PostgreSQL or MySQL.
-
-### Supported Databases:
+The tool supports multiple database backends:
 - SQLite (default)
 - PostgreSQL
 - MySQL
 - MongoDB (coming soon)
 
-### Database Features:
+### Features
 - Automatic schema creation
-- Efficient storage of use cases
-- Easy retrieval by industry
-- Data persistence between runs
-- Support for all use case fields
+- Efficient storage and retrieval
+- Industry-based filtering
+- Web interface for browsing use cases
 
-### Using Different Databases
+## Available Industries
 
-To use a different database, update the `DATABASE_URL` in your `.env` file:
-
-```bash
-# PostgreSQL
-DATABASE_URL=postgresql://user:password@localhost:5432/ai_use_cases
-
-# MySQL
-DATABASE_URL=mysql://user:password@localhost:3306/ai_use_cases
-
-# SQLite (default)
-DATABASE_URL=sqlite:///ai_use_cases.db
-```
-
-## Available Industries to Benchmark
-
-You can analyze any industry, for example:
+Examples include:
 - finance
 - healthcare
 - automotive
@@ -147,22 +152,24 @@ You can analyze any industry, for example:
 
 ## Troubleshooting
 
-### Error: "No module named 'X'"
+### Module Import Issues
 ```bash
-pip install X
+pip install <missing_module>
 ```
 
-### Search-related errors
-Try switching to a different search provider by obtaining the appropriate API key and adding it to your `.env` file.
+### Search Provider Issues
+1. Verify API keys in `.env`
+2. Try alternative search providers
+3. Check provider-specific quotas and limits
 
-### Database errors
-1. Ensure your database server is running
-2. Check your database credentials in the `.env` file
-3. Verify you have the correct database driver installed
-4. Make sure the database exists (for PostgreSQL/MySQL)
+### Database Issues
+1. Verify database server is running
+2. Check credentials in `.env`
+3. Install appropriate database driver
+4. Create database if using PostgreSQL/MySQL
 
-### Rate limiting errors
-Some search providers may impose rate limits. If you encounter rate limiting, try:
-1. Using a different search provider
-2. Reducing the number of requests (lower the `--count` parameter)
-3. Adding delays between requests (edit the code to add `time.sleep(3)` between searches)
+### Rate Limiting
+1. Switch to a different search provider
+2. Reduce request count (`--count` parameter)
+3. Add delays between requests
+4. Use the web interface for browsing existing results
