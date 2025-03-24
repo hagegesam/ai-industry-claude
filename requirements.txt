@@ -1,0 +1,16 @@
+langchain-core>=0.1.0
+langchain-community>=0.0.10
+langchain-openai>=0.0.2
+langchain-text-splitters>=0.0.1
+python-dotenv>=1.0.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+sqlalchemy>=2.0.0
+pymongo>=4.6.0  # Optional, for MongoDB support
+duckduckgo-search>=4.1.1  # Optional, for DuckDuckGo search
+google-search-results>=2.4.2  # Optional, for SerpAPI
+tavily-python>=0.3.0  # Optional, for Tavily search
+pytest>=7.4.0
+requests-mock>=1.11.0
+PyPDF2>=3.0.0
+flask>=3.0.0 
