@@ -1,4 +1,6 @@
-# AI Industry Benchmark - Installation Guide
+# AI Industry Benchmark with Claude
+
+A comprehensive tool for benchmarking AI use cases across different industries, powered by Claude and other AI agents.
 
 This guide will help you set up and run the AI Industry Benchmark tool, which collects and analyzes AI use cases across different industries.
 
@@ -10,8 +12,8 @@ This guide will help you set up and run the AI Industry Benchmark tool, which co
 ## Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ai-industry-benchmark.git
-cd ai-industry-benchmark
+git clone https://github.com/hagegesam/ai-industry-claude.git
+cd ai-industry-claude
 ```
 
 Or create a new directory and add the Python files manually.
